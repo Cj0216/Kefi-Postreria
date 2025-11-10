@@ -8,31 +8,38 @@ import brow from "../assets/brow.jpeg";
 interface Product {
   name: string;
   img: ImageMetadata;
+  price: string;
 }
 
 const products: Product[] = [
-  { name: "Donas personalizadas", img: donas },
-  { name: "Tiramisú", img: tira },
-  { name: "Brownie de chocolate", img: brow },
+  { name: "Donas personalizadas", img: donas, price: "$60 MXN" },
+  { name: "Tiramisú", img: tira, price: "$75 MXN" },
+  { name: "Brownie de chocolate", img: brow, price: "$50 MXN" },
 ];
 ---
+
 <section id="productos" class="py-20 bg-pink-50 text-center">
   <h2 class="text-3xl font-bold text-gray-800 mb-10">Nuestros Postres Estrella</h2>
   <div class="grid md:grid-cols-3 gap-8 px-6">
     {products.map(product => (
-      <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 duration-300 animate-fadeIn">
-        <div class="rounded-t-xl overflow-hidden">
+      <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 duration-300 animate-fadeIn relative">
+        <div class="rounded-t-xl overflow-hidden relative">
+          <!-- Badge de precio -->
+          
           <img
             src={product.img.src}
             alt={product.name}
             width={product.img.width}
             height={product.img.height}
-            class="w-full h-80  object-cover"
+            class="w-full h-80 object-cover"
             loading="lazy"
           />
         </div>
-        <div class="p-4">
+        <div class="p-4 flex justify-between items-center">
           <h3 class="text-xl font-semibold text-gray-700">{product.name}</h3>
+          <span class="inline-flex items-center rounded-lg bg-pink-400/10 px-2 py-1 text-xs font-medium text-pink-500 inset-ring inset-ring-pink-500/20 backdrop-blur-sm shadow-sm">
+            {product.price}
+          </span>
         </div>
       </div>
     ))}
