@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@theme{
+    --font-display:"DynaPuff", system-ui;
+}
+#inicio {
+  position: relative;
+  color: white;
+  overflow: hidden; /* para que el pseudo-elemento no se salga */
+}
+
+#inicio::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* cubre todo el contenedor */
+  background-image: url("../assets/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: blur(5px); /* ajusta el nivel de desenfoque */
+  z-index: -1; /* lo coloca detrás del contenido */
+  transform: scale(1.1); /* evita bordes visibles del blur */
+}
+#navb{
+    background-color: #330000;
+background-image: url("../assets/bg.jpg");
+
+background-size: cover;
+color:white
+}
