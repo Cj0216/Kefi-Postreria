@@ -9,12 +9,28 @@ interface Product {
   name: string;
   img: ImageMetadata;
   price: string;
+  description: string;
 }
 
 const products: Product[] = [
-  { name: "Donas personalizadas", img: donas, price: "$60 MXN" },
-  { name: "Tiramisú", img: tira, price: "$75 MXN" },
-  { name: "Brownie de chocolate", img: brow, price: "$50 MXN" },
+  { 
+    name: "Donas personalizadas", 
+    img: donas, 
+    price: "$60 MXN",
+    description: "Deliciosas donas decoradas a tu gusto, ideales para eventos o antojos dulces."
+  },
+  { 
+    name: "Tiramisú", 
+    img: tira, 
+    price: "$75 MXN",
+    description: "Clásico postre italiano con capas de bizcocho y crema de mascarpone."
+  },
+  { 
+    name: "Brownie de chocolate", 
+    img: brow, 
+    price: "$50 MXN",
+    description: "Suave, húmedo y lleno de sabor a cacao. Perfecto para los amantes del chocolate."
+  },
 ];
 ---
 
@@ -35,11 +51,12 @@ const products: Product[] = [
             loading="lazy"
           />
         </div>
-        <div class="p-4 flex justify-between items-center">
+        <div class="p-4 space-y-2">
           <h3 class="text-xl font-semibold text-gray-700">{product.name}</h3>
-          <span class="inline-flex items-center rounded-lg bg-pink-400/10 px-2 py-1 text-xs font-medium text-pink-500 inset-ring inset-ring-pink-500/20 backdrop-blur-sm shadow-sm">
+<span class="inline-flex items-center rounded- bg-pink-400/10 px-2 py-1 text-xs font-medium text-pink-500 inset-ring inset-ring-pink-500/20 backdrop-blur-sm shadow-sm">
             {product.price}
           </span>
+          <p class="text-sm text-gray-500">{product.description}</p>
         </div>
       </div>
     ))}
